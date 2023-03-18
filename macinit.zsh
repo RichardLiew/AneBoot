@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 #
-# Copyright (c) 2017 Ayoume Inc.
+# Copyright (c) 2019 Anebit Inc.
 # All rights reserved.
 #
 # "User Manager For Mac" version 1.0
@@ -15,7 +15,7 @@
 # copyright notice, this list of conditions and the following disclaimer
 # in the documentation and/or other materials provided with the
 # distribution.
-#    * Neither the name of Ayoume Inc. nor the names of its
+#    * Neither the name of Anebit Inc. nor the names of its
 # contributors may be used to endorse or promote products derived from
 # this software without specific prior written permission.
 #
@@ -32,24 +32,25 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 # ---
-# Author:  Zich
+# Author:  Richard
 # Created: 2017-08-30 10:46:00
-# E-mail:  zichoole@gmail.com
+# E-mail:  richard.zen.liew@gmail.com
 #
 # ---
 # Description:
 #   Manage users and groups for mac.
 #
 # ---
-# TODO (Zich):
+# TODO (@Richard):
 #   1. exit; (Done)
 #   2. getopt and getopts;
-#   3. print info;
-#   4. colorful info;
-#   5. users and groups into json to configure;
-#   6. password hint; (Done)
-#   7. avatar by dscl; (Done)
-#   8. group avatar by dscl. (Done)
+#   3. help and usage info within man command;
+#   4. print info;
+#   5. colorful info;
+#   6. users and groups into json to configure;
+#   7. password hint; (Done)
+#   8. avatar by dscl; (Done)
+#   9. group avatar by dscl. (Done)
 #
 ###############################################################################
 
@@ -58,11 +59,11 @@
 emulate bash
 
 
-# Exit immediately if a simple command exits with a non-zero status.
+# exit immediately if a simple command exits with a non-zero status
 set -e
 
 
-# Progress ID
+# progress id
 export TOP_PID=$$
 
 
@@ -339,43 +340,56 @@ function create_user() {
 
 
 # Groups：
-#   Ayoume:
-create_group \
-  "8000" \
-  "Ayoume" \
-  "Ayoume Inc." \
-  "lTs011027" \
-  "Keep coolest!" \
-  "" \
-  "0"
+function create_groups() {
+  # Anebit:
+  #create_group \
+  #  "8000" \
+  #  "Anebit" \
+  #  "Anebit Inc." \
+  #  "lTs011027" \
+  #  "Keep coolest!" \
+  #  "" \
+  #  "0"
+  local a
+}
 
 
 # Users：
-#  Zeus (reserved super administrator):
-create_user \
-  "9000" \
-  "Zeus" \
-  "Zeus Liew" \
-  "/bin/zsh" \
-  "/Users/Zeus" \
-  "lTs011027" \
-  "Keep coolest!" \
-  "/Library/User Pictures/Animals/Eagle.tif" \
-  "Ayoume,admin" \
-  "0"
+function create_users() {
+  # Zeus (reserved super administrator):
+  #create_user \
+  #  "9000" \
+  #  "Zeus" \
+  #  "Zeus Liew" \
+  #  "/bin/zsh" \
+  #  "/Users/Zeus" \
+  #  "lTs011027" \
+  #  "Thinking ..." \
+  #  "/Library/User Pictures/Animals/Eagle.tif" \
+  #  "Anebit,admin" \
+  #  "0"
 
-#  Zich (myself):
-create_user \
-  "9001" \
-  "Zich" \
-  "Zich Liew" \
-  "/bin/zsh" \
-  "/Users/Zich" \
-  "lTs011027" \
-  "Keep coolest!" \
-  "/Library/User Pictures/Fun/Ying-Yang.png" \
-  "Ayoume,admin" \
-  "0"
+  # Richard (current user):
+  create_user \
+    "9001" \
+    "Richard" \
+    "Richard Liew" \
+    "/bin/zsh" \
+    "/Users/Richard" \
+    "lTs011027" \
+    "Thinking ..." \
+    "/Library/User Pictures/Fun/Ying-Yang.png" \
+    "Anebit,admin" \
+    "0"
+}
+
+
+# create groups
+create_groups
+
+
+# create users
+create_users
 
 
 echo "Success!"
