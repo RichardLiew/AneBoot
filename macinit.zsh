@@ -56,7 +56,7 @@
 
 
 # compatible with bash
-emulate bash
+#emulate bash
 
 
 # exit immediately if a simple command exits with a non-zero status
