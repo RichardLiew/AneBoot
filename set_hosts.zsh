@@ -1,4 +1,4 @@
-emulate bash
+#emulate bash
 set -e
 
 # Hosts:
