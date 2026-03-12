@@ -1,3 +1,6 @@
+emulate bash
+set -e
+
 # Hosts:
 function assign_hosts() {
   local -r computer_name="$1"
